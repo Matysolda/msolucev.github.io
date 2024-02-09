@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="kontakt.css">
+        
+    <!-- ===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+     <title>Králův Dvůr</title>
+</head>
+<body>
+
+    <nav>
+
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo"><a href="index2.html">Králův Dvůr</a></span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="index2.html">Králův Dvůr</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index2.html">Domov</a></li>
+                    <li><a href="omeste.html">O městě</a></li>
+                    <li><a href="volnycas.html">Volný Čas</a></li>
+                    <li><a href="galerie.html">Galerie</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+
+                <div class="searchBox">
+                   <div class="searchToggle">
+                    <i class='bx bx-x cancel'></i>
+                    <i class='bx bx-search search'></i>
+                   </div>
+
+                    <div class="search-field">
+                        <input type="text" placeholder="Search...">
+                        <i class='bx bx-search'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<script>
+
+const body = document.querySelector("body"),
+      nav = document.querySelector("nav"),
+      modeToggle = document.querySelector(".dark-light"),
+      searchToggle = document.querySelector(".searchToggle"),
+      sidebarOpen = document.querySelector(".sidebarOpen"),
+      siderbarClose = document.querySelector(".siderbarClose");
+
+      let getMode = localStorage.getItem("mode");
+          if(getMode && getMode === "dark-mode"){
+            body.classList.add("dark");
+          }
+
+// js code to toggle dark and light mode
+      modeToggle.addEventListener("click" , () =>{
+        modeToggle.classList.toggle("active");
+        body.classList.toggle("dark");
+
+        // js code to keep user selected mode even page refresh or file reopen
+        if(!body.classList.contains("dark")){
+            localStorage.setItem("mode" , "light-mode");
+        }else{
+            localStorage.setItem("mode" , "dark-mode");
+        }
+      });
+
+// js code to toggle search box
+        searchToggle.addEventListener("click" , () =>{
+        searchToggle.classList.toggle("active");
+      });
+ 
+      
+//   js code to toggle sidebar
+sidebarOpen.addEventListener("click" , () =>{
+    nav.classList.add("active");
+});
+
+body.addEventListener("click" , e =>{
+    let clickedElm = e.target;
+
+    if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
+        nav.classList.remove("active");
+    }
+});
+
+</script>
+
+<h1 id="nadpis">Kontakty</h1>
+
+<div class="row">
+
+    <div class="column">
+<div class="card">
+<h5 id="telefon">Telefon:</h5>
+<p id="cislo">+420 311 652 020</p>
+<p id="cislo">+420 311 652 036</p>
+
+<h5 id="email">E-mail:</h5>
+<p id="imejl">e-posta@kraluv-dvur.cz</p>
+<p id="imejl">podatelna@kraluv-dvur.cz</p>
+
+<h5 id="datovka">Datová schránka:</h5>
+<p id="iddat">eaabdfp</p>
+
+<h5 id="ico">IČO:</h5>
+<p id="ico2">00509701</p>
+
+<h5 id="urednihodky">Úřední hodiny:</h5>
+<p id="hodky"> Pondělí: ㅤ8:00 - 11:30, 12:30 - 17:00</p>
+<p id="hodky"> Středa: ㅤ8:00 - 11:30, 12:30 - 17:00</p>
+<p id="hodky"> Čtvrtek: ㅤ8:00 - 11:30</p>
+
+</div>
+    </div>
+
+    <div class="column">
+<div class="card2">
+<h4 id="formular">Kontaktní Formulář</h4>
+<form id="kontaktni-formular">
+    <br>
+  <label id="jmeno1"   for="jmeno">Jméno:</label>
+  <br>
+  <input type="text" id="jmeno" name="jmeno" required>
+<br>
+  <label id="imejlek" for="email">Email:</label>
+  <br>
+  <input type="email" id="emailek" name="email" required>
+<br>
+  <label id="zpravicka" for="zprava">Zpráva:</label>
+  <br>
+  <textarea id="zprava" name="zprava" rows="10" required></textarea>
+<br>
+  <button class="tlacitko"    type="submit">Odeslat</button>
+</form>
+
+</div>
+</div>
+</div>
+
+
+<iframe id="mapa"src="//www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4204.489489094308!2d14.038958346733482!3d49.944217860435565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470ba586d7821dbb%3A0xd9dcb2a3c9344cb6!2zS3LDoWzFr3YgRHbFr3IgLSBNxJtzdHNrw70gw5rFmWFk!5e0!3m2!1scs!2scz!4v1706456530549!5m2!1scs!2scz" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+</body>
+<footer>
+    |ㅤMatěj Solucevㅤ
+</footer>
+</html>
