@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - codingnepalweb.com -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/znak_KD.jpeg">
+
+
+    <!-- ===== CSS ===== -->
+    <link rel="stylesheet" href="galerie.css">
+    <link rel="stylesheet" href="lightbox.css">
+        
+    <!-- ===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+     <title>Králův Dvůr</title>
+</head>
+<body>
+
+    <nav>
+
+        <div class="nav-bar">
+            <i class='bx bx-menu sidebarOpen' ></i>
+            <span class="logo navLogo"><a href="index2.html">Králův Dvůr</a></span>
+
+            <div class="menu">
+                <div class="logo-toggle">
+                    <span class="logo"><a href="index2.html">Králův Dvůr</a></span>
+                    <i class='bx bx-x siderbarClose'></i>
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="index2.html">Domov</a></li>
+                    <li><a href="omeste.html">O městě</a></li>
+                    <li><a href="volnycas.html">Volný Čas</a></li>
+                    <li><a href="#">Galerie</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </div>
+
+            <div class="darkLight-searchBox">
+                <div class="dark-light">
+                    <i class='bx bx-moon moon'></i>
+                    <i class='bx bx-sun sun'></i>
+                </div>
+
+                <div class="searchBox">
+                   <div class="searchToggle">
+                    <i class='bx bx-x cancel'></i>
+                    <i class='bx bx-search search'></i>
+                   </div>
+
+                    <div class="search-field">
+                        <input type="text" placeholder="Search...">
+                        <i class='bx bx-search'></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+<script>
+
+const body = document.querySelector("body"),
+      nav = document.querySelector("nav"),
+      modeToggle = document.querySelector(".dark-light"),
+      searchToggle = document.querySelector(".searchToggle"),
+      sidebarOpen = document.querySelector(".sidebarOpen"),
+      siderbarClose = document.querySelector(".siderbarClose");
+
+      let getMode = localStorage.getItem("mode");
+          if(getMode && getMode === "dark-mode"){
+            body.classList.add("dark");
+          }
+
+// js code to toggle dark and light mode
+      modeToggle.addEventListener("click" , () =>{
+        modeToggle.classList.toggle("active");
+        body.classList.toggle("dark");
+
+        // js code to keep user selected mode even page refresh or file reopen
+        if(!body.classList.contains("dark")){
+            localStorage.setItem("mode" , "light-mode");
+        }else{
+            localStorage.setItem("mode" , "dark-mode");
+        }
+      });
+
+// js code to toggle search box
+        searchToggle.addEventListener("click" , () =>{
+        searchToggle.classList.toggle("active");
+      });
+ 
+      
+//   js code to toggle sidebar
+sidebarOpen.addEventListener("click" , () =>{
+    nav.classList.add("active");
+});
+
+body.addEventListener("click" , e =>{
+    let clickedElm = e.target;
+
+    if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
+        nav.classList.remove("active");
+    }
+});
+
+</script>
+
+
+
+
+<h1 id="nadpis">Fotogalerie</h1>
+
+<h6 id="podnadpis">Historické fotografie</h6>
+
+
+
+   <div class="container">
+      <div class="gallery">
+         <a href="images/kdd.jpeg" data-lightbox="models" data-title="Caption1">
+            <img src="images/kdd.jpeg" > 
+         </a>
+
+
+         <a href="images/Králův Dvůr Na knížecí.jpeg" data-lightbox="models" data-title="Na Knížecí">
+            <img src="images/Králův Dvůr Na knížecí.jpeg" > 
+         </a>
+
+         <a href="images/Levín_1905_hasičská_kolna,_Květoňovic_chalupa_(dnes_Matejzík),_2_topoly-303925382.jpeg" data-lightbox="models" data-title="Levín 1905">
+            <img src="images/Levín_1905_hasičská_kolna,_Květoňovic_chalupa_(dnes_Matejzík),_2_topoly-303925382.jpeg" > 
+         </a>
+
+         <a href="images/Počaply 1915.jpeg" data-lightbox="models" data-title="Počaply 1915">
+            <img src="images/Počaply 1915.jpeg" > 
+         </a>
+
+         <a href="images/kd1935.jpeg" data-lightbox="models" data-title="Králův Dvůr 1935">
+            <img src="images/kd1935.jpeg" > 
+         </a>
+
+         <a href="images/kaplepokus2.jpeg"   data-lightbox="models" data-title="Novogotická Kaplička v Králově Dvoře">
+            <img src="images/kaple.jpeg" > 
+         </a>
+
+         <a href="images/kaplicka1960.jpeg"   data-lightbox="models" data-title="Kaplička v roce 1960">
+            <img src="images/kaplicka1960upraveno.jpg" > 
+         </a>
+
+         <a href="images/kraluvdvurhistorickefoto.jpeg"   data-lightbox="models" data-title="Králův Dvůr 1855">
+            <img src="images/kraluvdvurhistorickefoto.jpeg" > 
+         </a>
+
+         <a href="images/kaplicka1962_pozbourani.jpeg"   data-lightbox="models" data-title="Kaplička po zbourání v roce 1962">
+            <img src="images/kaplicka1962_pozbourani.jpeg" > 
+         </a>
+
+      </div>
+   </div>
+
+
+   <div id="cara-container">
+      <div id="cara"></div>
+  </div>
+
+      <h6 id="podnadpis2">Železárny - historie</h6>
+     
+   <div class="container">
+      <div class="gallery" id="galerie2">
+         <a href="images/zelezarny.jpeg" data-lightbox="models" data-title="Stavba 1. a 2. pece">
+            <img src="images/zelezarny.jpeg" > 
+         </a>
+
+
+         <a href="images/zelezarny1.jpeg" data-lightbox="models" data-title="Stavba 1. a 2. pece">
+            <img src="images/zelezarny1.jpeg" > 
+         </a>
+
+         <a href="images/zelezarny2.jpeg" data-lightbox="models" data-title="Pohled z dálky na železárny">
+            <img src="images/zelezarny2.jpeg" > 
+         </a>
+
+         <a href="images/zelezarny3.jpeg" data-lightbox="models" data-title="Pohled na železárny">
+            <img src="images/zelezarny3.jpeg" > 
+         </a>
+
+
+         <a href="images/cementarna.jpeg" data-lightbox="models" data-title="Cementárna">
+            <img src="images/cementarna.jpeg" > 
+         </a>
+
+         <a href="images/vzducholod.jpeg" data-lightbox="models" data-title="Vzducholoď Graf Zeppelin při cestě kolem světa roku 1929">
+            <img src="images/vzducholod.jpeg" > 
+         </a>
+
+         <a href="images/zelezarny1911.jpeg" data-lightbox="models" data-title="Železárny 1911">
+            <img src="images/zelezarny1911.jpeg" > 
+         </a>
+
+
+         <a href="images/zelezarny5.jpeg" data-lightbox="models" data-title="Železárny">
+            <img src="images/zelezarny5upraveno.jpg" > 
+         </a>
+
+         <a href="images/zelezarnypec.jpeg" data-lightbox="models" data-title="Výstavba nové pece">
+            <img src="images/zelezarnypecupraveno.jpg" > 
+         </a>
+
+         <a href="images/1890kd.jpeg" data-lightbox="models" data-title="Králův Dvůr 1890">
+            <img src="images/1890kd.jpeg" > 
+         </a>
+
+         <a href="images/zelezarny9.jpeg" data-lightbox="models" data-title="Plynový motor Škoda, rok 1913">
+            <img src="images/zelezarny9.jpeg" > 
+         </a>
+
+         <a href="images/vlakzelezarny.jpeg" data-lightbox="models" data-title="Vlak">
+            <img src="images/vlakzelezarny.jpeg" > 
+         </a>
+
+      </div>
+   </div>
+
+   <div id="cara-container">
+      <div id="cara"></div>
+  </div>
+
+   <h6 id="podnadpis3">Železárny - současnost</h6>
+
+
+   <div class="container">
+      <div class="gallery">
+         <a href="images/soucasnostzelezarny.jpeg" data-lightbox="models" data-title="Místo kde stály pece">
+            <img src="images/soucasnostzelezarny.jpeg" > 
+         </a>
+
+
+         <a href="images/soucasnostzelezarny1.jpeg" data-lightbox="models" data-title="Příslušenství bývalých vysokých pecí">
+            <img src="images/soucasnostzelezarny1.jpeg" > 
+         </a>
+         <a href="images/soucasnostzelezarny2.jpeg" data-lightbox="models" data-title="Dělnické domy">
+            <img src="images/soucasnostzelezarny2.jpeg" > 
+         </a>
+
+         <a href="images/soucasnostzelezarny3.jpeg" data-lightbox="models" data-title="Areál huti">
+            <img src="images/soucasnostzelezarny3.jpeg" > 
+         </a>
+
+         <a href="images/zelezarnysoucasnyzboreny.jpeg" data-lightbox="models" data-title="Konečná stanice rudné lanovky">
+            <img src="images/zelezarnysoucasnyzboreny.jpeg" > 
+         </a>
+
+         <a href="images/soucasnost.jpeg" data-lightbox="models" data-title="... dálky a křižovatky. Na konci cest ...">
+            <img src="images/soucasnost.jpeg" > 
+         </a>
+
+
+      </div>
+   </div>
+
+
+
+   <script src="lightbox-plus-jquery.js"></script>
+</body>
+
+<footer>
+   |ㅤMatěj Solucevㅤ
+</footer>
+
+</html>
